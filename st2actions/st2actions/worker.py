@@ -14,6 +14,8 @@
 # limitations under the License.
 
 from __future__ import absolute_import
+
+import json
 import sys
 import traceback
 
@@ -154,8 +156,10 @@ class ActionExecutionDispatcher(MessageHandler):
         )
 
         self._running_liveactions.add(liveaction_db.id)
-
+        
+        liveaction_db = json.dumps(liveaction_db)
         action_execution_db = executions.update_execution(liveaction_db)
+        action_execution_db = json.dumps(action_execution_db)
 
         # Launch action
         extra = {
