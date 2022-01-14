@@ -15,6 +15,7 @@
 
 from __future__ import absolute_import
 
+import json
 import sys
 import traceback
 
@@ -169,8 +170,9 @@ class RunnerContainer(object):
         LOG.debug("Performing post_run for runner: %s", runner.runner_id)
         runner.post_run(status=status, result=result)
 
+        liveaction_db = json.dumps(runner.liveaction)
         LOG.debug("Runner do_run result", extra={"result": runner.liveaction.result})
-        LOG.audit("Liveaction completed", extra={"liveaction_db": runner.liveaction})
+        LOG.audit("Liveaction completed", extra={"liveaction_db": liveaction_db})
 
         return runner.liveaction
 
@@ -280,8 +282,9 @@ class RunnerContainer(object):
         LOG.debug("Performing post_run for runner: %s", runner.runner_id)
         runner.post_run(status=status, result=result)
 
+        liveaction_db = json.dumps(runner.liveaction)
         LOG.debug("Runner do_run result", extra={"result": runner.liveaction.result})
-        LOG.audit("Liveaction completed", extra={"liveaction_db": runner.liveaction})
+        LOG.audit("Liveaction completed", extra={"liveaction_db": liveaction_db})
 
         return runner.liveaction
 
