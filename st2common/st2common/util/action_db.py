@@ -309,7 +309,6 @@ def update_liveaction_status(
         LiveAction.publish_status(liveaction_db)
         LOG.debug("Published status for LiveAction object.", extra=extra)
 
-    LOG.audit('DEBUGMESSAGE "%s".', type(liveaction_db))
     return liveaction_db
 
 

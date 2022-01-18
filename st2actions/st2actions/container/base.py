@@ -172,7 +172,7 @@ class RunnerContainer(object):
 
         #liveaction_db = json.dumps(runner.liveaction)
         LOG.debug("Runner do_run result", extra={"result": runner.liveaction.result})
-        LOG.audit("Liveaction completed", extra={"liveaction_db": liveaction_db})
+        LOG.audit("Liveaction completed", extra={"liveaction_db": runner.liveaction})
 
         return runner.liveaction
 
