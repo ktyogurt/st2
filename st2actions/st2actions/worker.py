@@ -155,6 +155,7 @@ class ActionExecutionDispatcher(MessageHandler):
             liveaction_id=liveaction_db.id,
         )
         LOG.debug('DEBUGMESSAGE "%s".', type(liveaction_db))
+        LOG.debug('DEBUGMESSAGE "%s".', liveaction_db)
         self._running_liveactions.add(liveaction_db.id)
 
         #liveaction_db = json.dumps(liveaction_db)
