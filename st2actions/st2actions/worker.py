@@ -164,8 +164,8 @@ class ActionExecutionDispatcher(MessageHandler):
 
         # Launch action
         extra = {
-            "action_execution_db": action_execution_db,
-            "liveaction_db": liveaction_db,
+            "action_execution_db": json.dumps(action_execution_db__dict__),
+            "liveaction_db": json.dumps(liveaction_db__dict__),
         }
         LOG.audit("Launching action execution.", extra=extra)
 
